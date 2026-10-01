@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perangkat Pembelajaran Akuntansi - Ridho Athoillah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background-color: #f4f7f6; color: #1f2937; }
+
+    /* Header Hijau */
+    header {
+      background-color: #1b4d3e;
+      color: white;
+      padding: 25px 40px;
+    }
+    .header-title { font-size: 26px; font-weight: 700; margin-bottom: 5px; }
+    .header-sub { font-size: 14px; opacity: 0.9; margin-bottom: 20px; }
+
+    /* Navigasi Tab */
+    nav { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .nav-btn.active, .nav-btn:hover {
+      background-color: white;
+      color: #1b4d3e;
+      font-weight: 600;
+    }
+
+    /* Konten Utama */
+    .container { max-width: 950px; margin: 30px auto; padding: 0 20px; }
+    
+    .card-welcome {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      border: 1px solid #e5e7eb;
+      margin-bottom: 25px;
+    }
+    .card-welcome h2 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #111827; }
+    .card-welcome p { font-size: 14px; color: #4b5563; line-height: 1.6; margin-bottom: 15px; }
+
+    /* Grid Menu */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 15px; }
+    .menu-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .menu-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.05); }
+    .menu-card h3 { font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 8px; }
+    .menu-card p { font-size: 13px; color: #6b7280; line-height: 1.5; }
+
+    /* Area Konten Dinamis */
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+
+    /* List Materi & Tabel */
+    ul { margin-left: 20px; margin-top: 10px; color: #4b5563; font-size: 14px; }
+    li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigasi -->
+  <header>
+    <div class="header-title">Perangkat Pembelajaran Akuntansi</div>
+    <div class="header-sub">Pendidikan Akuntansi · Disusun oleh Ridho Athoillah</div>
+    
+    <nav>
+      <button class="nav-btn active" onclick="switchTab('beranda', this)">Beranda</button>
+      <button class="nav-btn" onclick="switchTab('cp-atp', this)">CP & ATP</button>
+      <button class="nav-btn" onclick="switchTab('materi', this)">Materi Pokok</button>
+      <button class="nav-btn" onclick="switchTab('media', this)">Media & Evaluasi</button>
+      <button class="nav-btn" onclick="switchTab('refleksi', this)">Refleksi Pembelajaran</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- TAB BERANDA -->
+    <div id="beranda" class="content-section active">
+      <div class="card-welcome">
+        <h2>Selamat Datang di Portal Perangkat Pembelajaran</h2>
+        <p>Media pembelajaran digital ini dirancang khusus untuk mendukung proses belajar mengajar mata pelajaran Akuntansi secara komprehensif, terstruktur, dan interaktif.</p>
+      </div>
+
+      <div class="grid">
+        <div class="menu-card" onclick="switchTab('cp-atp', document.querySelectorAll('.nav-btn')[1])">
+          <h3>CP & ATP</h3>
+          <p>Capaian Pembelajaran dan Alur Tujuan Pembelajaran Akuntansi.</p>
+        </div>
+        <div class="menu-card" onclick="switchTab('materi', document.querySelectorAll('.nav-btn')[2])">
+          <h3>Materi Pokok</h3>
+          <p>Kumpulan materi esensial pengantar siklus akuntansi perusahaan.</p>
+        </div>
+        <div class="menu-card" onclick="switchTab('media', document.querySelectorAll('.nav-btn')[3])">
+          <h3>Media & Evaluasi</h3>
+          <p>Instrumen penilaian, LKPD, dan media pembelajaran interaktif.</p>
+        </div>
+        <div class="menu-card" onclick="switchTab('refleksi', document.querySelectorAll('.nav-btn')[4])">
+          <h3>Refleksi Pembelajaran</h3>
+          <p>Catatan dan umpan balik pelaksanaan kegiatan pembelajaran.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB CP & ATP -->
+    <div id="cp-atp" class="content-section">
+      <div class="card-welcome">
+        <h2>Capaian Pembelajaran & Alur Tujuan Pembelajaran</h2>
+        <p><strong>Capaian Pembelajaran (CP):</strong> Peserta didik mampu memahami siklus akuntansi pada perusahaan jasa, dagang, dan manufaktur, serta mampu menyusun laporan keuangan sederhana.</p>
+        <p><strong>Alur Tujuan Pembelajaran (ATP):</strong></p>
+        <ul>
+          <li>Memahami sejarah, pengertian, dan pihak pemakai informasi akuntansi.</li>
+          <li>Mengidentifikasi jenis-jenis perusahaan dan bidang spesialisasi akuntansi.</li>
+          <li>Mengklasifikasikan akun-akun riil dan nominal (persamaan dasar akuntansi).</li>
+          <li>Menganalisis transaksi dan mencatatnya ke dalam Jurnal Umum.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TAB MATERI POKOK -->
+    <div id="materi" class="content-section">
+      <div class="card-welcome">
+        <h2>Materi Pokok Pembelajaran Akuntansi</h2>
+        <p><strong>1. Pengantar Akuntansi:</strong> Proses pencatatan, penggolongan, pengikrasian, dan pelaporan transaksi keuangan.</p>
+        <p><strong>2. Persamaan Dasar Akuntansi:</strong> Hubungan matematis antara Aset, Liabilitas, dan Ekuitas (<br><code>Aset = Kewajiban + Modal</code>).</p>
+        <p><strong>3. Siklus Akuntansi Perusahaan Jasa:</strong></p>
+        <ul>
+          <li>Penyusunan Bukti Transaksi.</li>
+          <li>Pencatatan ke Jurnal Umum (Debit & Kredit).</li>
+          <li>Posting ke Buku Besar (Ledger).</li>
+          <li>Penyusunan Neraca Saldo dan Laporan Keuangan (Laba Rugi, Perubahan Modal, Posisi Keuangan/Neraca).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TAB MEDIA & EVALUASI -->
+    <div id="media" class="content-section">
+      <div class="card-welcome">
+        <h2>Media Pembelajaran & Evaluasi</h2>
+        <p>Perangkat penunjang interaktif yang digunakan dalam kegiatan belajar mengajar:</p>
+        <ul>
+          <li><strong>Media Visual/Kontekstual:</strong> Modul ajar cetak dan digital berbasis infografis.</li>
+          <li><strong>Lembar Kerja Peserta Didik (LKPD):</strong> Penugasan kelompok studi kasus pencatatan jurnal umum.</li>
+          <li><strong>Evaluasi / Penilaian:</strong> Soal pilihan ganda dan esai berbasis HOTS untuk menguji pemahaman konsep dasar akuntansi.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TAB REFLEKSI -->
+    <div id="refleksi" class="content-section">
+      <div class="card-welcome">
+        <h2>Refleksi Pembelajaran</h2>
+        <p>Evaluasi diri pelaksanaan pembelajaran akuntansi untuk memastikan tercapainya indikator keberhasilan belajar peserta didik, pemahaman materi secara mendalam, serta perbaikan metode pengajaran ke depan.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId, btnElement) {
+      document.querySelectorAll('.content-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+      if(btnElement) btnElement.classList.add('active');
+    }
+  </script>
+</body>
+</html>
